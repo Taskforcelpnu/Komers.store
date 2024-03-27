@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <style>
+        /* Оновлені CSS стилі */
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Додати тінь для ефекту підняття */
+            width: calc(33.33% - 20px); /* Ширина одного блоку товару (з врахуванням відступів) */
+            margin-bottom: 20px; /* Відступ між блоками товарів */
+        }
+
+            .product img {
+                max-width: 300px;
+                height: auto;
+                display: block;
+                border-top-left-radius: 5px; /* Округліть кути зображення вгорі ліворуч */
+                border-top-right-radius: 5px; /* Округліть кути зображення вгорі праворуч */
+                max-height:300px;
+            }
+
+        .product-info {
+            
+            padding: 10px;
+        }
+
+        .product h2 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product h3 {
+            font-size: 16px;
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+        .product h4 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product h5 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product h6 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product h7 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product h8 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product h9 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .product p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            margin: auto;
+            overflow-x: hidden; /* Вимикає горизонтальну прокрутку */
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto; /* Додає вертикальну прокрутку для контенту */
+            height: 100%; /* Встановлює висоту контенту */
+        }
+
+        .underline {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#home" class="page-link">Головна сторінка</a></li>
+                <li><a href="#cart" class="page-link">Корзина</a></li>
+                <li><a href="#account" class="page-link">Особистий кабінет</a></li>
+            </ul>
+        </div>
+
+        <div class="content" id="home">
+            <h1>Головна сторінка</h1>
+            <div class="underline"></div>
+            <div class="products">
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://images.prom.ua/5522083402_cholovichi-krosivki-nike.jpg" alt="Товар 1">
+                        <h1>Nike TN Air Max Plus Navy</h1>
+                        <p>4800 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://vzutistore.com.ua/5326-large_default/nike-air-max-plus-blue-gradien.jpg" alt="Товар 2">
+                        <h2>Nike Air Max Plus Blue Gradien</h2>
+                        <p>6 990 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/DM0032-401-472x497.webp" alt="Товар 3">
+                        <h3>NIKE AIR MAX PLUS LIGHT BLUE/BLACK</h3>
+                        <p>7500 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FV0393-001-472x497.webp" alt="Товар 4">
+                        <h4>NIKE AIR MAX PLUS BLUE/VIOLET</h4>
+                        <p>8790 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://yesoriginal.com.ua/image/cache/catalog/i/hd/ek/204494f0a20b8e92ef2b1ba9e65fe114-472x497.webp" alt="Товар 4">
+                        <h5>NIKE AIR MAX PLUS TRIPLE BLACK BLACK</h5>
+                        <p>6890 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/CD0609-022-472x497.webp" alt="Товар 4">
+                        <h6>NIKE TN AIR MAX PLUS GS BLACK BRIGHT CACTUS WHITE/BLUE</h6>
+                        <p>5390 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://idealsport.com.ua/content/images/11/600x579l80mc0/67983753071998.webp" alt="Товар 4">
+                        <h7>Nike Sportswear Air Max Plus Mercurial</h7>
+                        <p>7839 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FD4290-001-472x497.webp" alt="Товар 4">
+                        <h8>NIKE AIR MAX PLUS DRIFT BEIGE/BROWN </h8>
+                        <p>9090 ₴</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-info">
+                        <img src="https://images.prom.ua/5522081727_cholovichi-krosivki-nike.jpg" alt="Товар 4">
+                        <h9>Nike TN Air Max Plus Navy</h9>
+                        <p>4800 ₴</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content" id="account" style="display: none;">
+            <h1>Особистий кабінет</h1>
+            <div class="underline"></div>
+            <p>тут має бути вміст сторінки</p>
+        </div>
+
+        <div class="content" id="cart" style="display: none;">
+            <h1>Корзина</h1>
+            <div class="underline"></div>
+            <p>тут має бути вміст сторінки</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.page-link').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                var targetId = this.getAttribute('href').substr(1);
+                document.querySelectorAll('.content').forEach(function (content) {
+                    if (content.id === targetId) {
+                        content.style.display = 'block';
+                    } else {
+                        content.style.display = 'none';
+                    }
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
