@@ -3,6 +3,16 @@ const http = require('http');
 
 const app = express();
 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+
+// Відправлення Category.html при запиті на /category
+app.get('/category', function (req, res) {
+    res.sendFile(__dirname + '/Category.html');
+});
+
+
 // Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
 let categories = [
     { id: 1, name: 'одяг' },
