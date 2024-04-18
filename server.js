@@ -3,6 +3,10 @@ const http = require('http');
 
 const app = express();
 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+
 // Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
 let categories = [
     { id: 1, name: 'одяг' },
@@ -51,12 +55,9 @@ app.get('/add-product', (req, res) => {
     res.status(201).json(newProduct); // Повертаємо статус 201 та створений продукт у відповіді
 });
 
-
-
-
 const port = process.env.PORT || 1337;
 const server = http.createServer(app);
 
 server.listen(port, () => {
-    console.log(`Сервер запущено на порту ${port}`);
+    console.log(`The server is started on the port ${port}`);
 });
