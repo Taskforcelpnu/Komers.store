@@ -1,11 +1,18 @@
 const express = require('express');
 const http = require('http');
 
+const models = require('./db/models')
+//database
+var sequelize = require('./db/db');
+
+
 const app = express();
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
+
+
 
 // Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
 let categories = [

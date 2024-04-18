@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\controllers",
+    "\\db",
+    "\\obj",
+    "\\obj\\Debug",
+    "\\obj\\Release",
+    "\\routes"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\obj\\Release\\NodejsWebApp1.njsproj.AssemblyReference.cache",
   "PreviewInSolutionExplorer": false
 }
