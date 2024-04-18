@@ -77,14 +77,15 @@
             margin-bottom: 20px; /* Відступ між блоками товарів */
         }
 
-        .product img {
-            max-width: 300px;
-            height: auto;
-            display: block;
-            border-top-left-radius: 5px; /* Округліть кути зображення вгорі ліворуч */
-            border-top-right-radius: 5px; /* Округліть кути зображення вгорі праворуч */
-            max-height: 300px;
-        }
+            .product img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                border-top-left-radius: 5px; /* Округліть кути зображення вгорі ліворуч */
+                border-top-right-radius: 5px; /* Округліть кути зображення вгорі праворуч */
+                max-height: 300px;
+                margin: 0 auto;
+            }
 
         .product-info {
             padding: 10px;
@@ -94,10 +95,21 @@
 
         .add-to-cart-btn {
             position: absolute; /* Встановлюємо абсолютне позиціонування */
-            bottom: 0; /* Розміщуємо кнопку внизу */
-            right: 0; /* Розміщуємо кнопку справа */
-            /* Додаткові стилі за бажанням */
+            bottom: 10px; /* Змінюємо відступ внизу */
+            right: 10px; /* Змінюємо відступ справа */
+            padding: 8px 16px; /* Збільшуємо відступи в кнопці */
+            background-color: #007bff; /* Змінюємо колір фону кнопки */
+            color: #fff; /* Змінюємо колір тексту на білий */
+            border: none; /* Видаляємо межі */
+            border-radius: 5px; /* Додаємо заокруглені кути */
+            cursor: pointer; /* Змінюємо курсор при наведенні на кнопку */
+            transition: background-color 0.3s ease; /* Додаємо плавну анімацію зміни кольору фону */
         }
+
+            .add-to-cart-btn:hover {
+                background-color: #0056b3; /* Змінюємо колір фону при наведенні */
+            }
+
 
         .product h2 {
             font-size: 16px;
@@ -210,15 +222,15 @@
             <div class="product">
 
                 <div class="product-info">
-                    <img src="https://images.prom.ua/5522083402_cholovichi-krosivki-nike.jpg" alt="Товар 1">
-                    <h1>Nike TN Air Max Plus Navy</h1>
+                    <img src="http://surl.li/sspxy" alt="Товар 1">
+                    <h1>Nike Air Max 97 Black</h1>
                     <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info">
-                    <img src="https://vzutistore.com.ua/5326-large_default/nike-air-max-plus-blue-gradien.jpg" alt="Товар 2">
-                    <h2>Nike Air Max Plus Blue Gradien</h2>
+                    <img src="http://surl.li/ssrrq" alt="Товар 2">
+                    <h2>NIKE AIR MAX 95 SE JEWEL</h2>
                     <p>6 990 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
@@ -266,8 +278,8 @@
             </div>
             <div class="product">
                 <div class="product-info">
-                    <img src="https://images.prom.ua/5522081727_cholovichi-krosivki-nike.jpg" alt="Товар 4">
-                    <h9>Nike TN Air Max Plus Navy</h9>
+                    <img src="http://surl.li/ssrqn" alt="Товар 4">
+                    <h9>NIKE AIR MAX 720 DEEP ROYAL BLUE </h9>
                     <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
