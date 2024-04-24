@@ -13,9 +13,13 @@
   "eslintConfig": {},
   "main": "server.js",
   "name": "nodejs-web-app1",
-  "scripts": {"start" : "node server.js"
+  "scripts": {
+    "start": "node server.js"
   },
   "version": "0.0.0",
   "keywords": [],
   "license": "ISC"
+
 }
+
+
