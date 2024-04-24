@@ -15,12 +15,12 @@ let categories = [
 ];
 // Масив продуктів (тимчасове рішення без бази даних)
 let products = [];
+
+let orders = [];
 // Роут для отримання списку категорій
 app.get('/categories', (req, res) => {
     res.json(categories);
 });
-
-// Роут для створення нового продукту
 app.post('/add-product', (req, res) => {
     const { name, categoryId } = req.body;
     const category = categories.find(cat => cat.id === parseInt(categoryId));
@@ -30,6 +30,24 @@ app.post('/add-product', (req, res) => {
     const newProduct = { id: products.length + 1, name, categoryId };
     products.push(newProduct);
     res.status(201).json(newProduct); // Повертаємо статус 201 та створений продукт у відповіді
+});
+// Роут для створення нового продукту
+app.get('/add-order', (req, res) => {
+    const { fullName, phoneNumber, city, postNumber, cartItems } = req.body;
+    if (!fullName || !phoneNumber || !city || !postNumber || !cartItems || !cartItems.length) {
+        return res.status(400).json({ message: 'Неповний або некоректний запит' });
+    }
+    const newOrder = {
+        id: orders.length + 1,
+        fullName,
+        phoneNumber,
+        city,
+        postNumber,
+        cartItems,
+        status: 'pending' // початковий статус - очікується обробка
+    };
+    orders.push(newOrder);
+    res.status(201).json(newOrder); // Повертаємо статус 201 та створене замовлення у відповіді
 });
 
 const port = process.env.PORT || 1337;

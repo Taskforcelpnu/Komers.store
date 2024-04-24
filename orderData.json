@@ -1,0 +1,16 @@
+{
+  "fullName": "John Doe",
+  "phoneNumber": "1234567890",
+  "city": "Example City",
+  "postNumber": "12345",
+  "cartItems": [
+    {
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "productId": 2,
+      "quantity": 1
+    }
+  ]
+}

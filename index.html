@@ -212,8 +212,9 @@
             <li><a href="#cart" class="page-link">Корзина</a></li>
             <li><a href="#account" class="page-link">Особистий кабінет</a></li>
 
-            <li><a href="categories.html">Список категорій товарів</a></li>
+
         </ul>
+        <a href="categories.html">Список категорій товарів</a>
     </div>
 
     <div class="content" id="home">
@@ -358,15 +359,15 @@
 
         // Додавання контенту в модальне вікно (наприклад, текст або інші елементи)
         modal.innerHTML = `
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p></p>
-            <input type="text" class="input-field" id="fullName" placeholder="Введіть Прізвище, Ім'я "><br>
-            <input type="text" class="input-field" id="phoneNumber" placeholder="Номер телефону"><br>
-            <input type="text" class="input-field" id="city" placeholder="Населений пункт"><br>
-            <input type="text" class="input-field" id="postNumber" placeholder="Номер відділення пошти або поштомату"><br>
-
-        </div>`;
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p></p>
+        <input type="text" class="input-field" id="fullName" placeholder="Введіть Прізвище, Ім'я "><br>
+        <input type="text" class="input-field" id="phoneNumber" placeholder="Номер телефону"><br>
+        <input type="text" class="input-field" id="city" placeholder="Населений пункт"><br>
+        <input type="text" class="input-field" id="postNumber" placeholder="Номер відділення пошти або поштомату"><br>
+        <button onclick="submitOrder()">Відправити</button>
+    </div>`;
 
         // Додавання модального вікна до body
         document.body.appendChild(modal);
@@ -404,6 +405,42 @@
             }
         });
     }
+
+    function closeModal() {
+        var modal = document.querySelector('.modal');
+        modal.parentNode.removeChild(modal);
+    }
+
+    async function submitOrder() {
+        const fullName = document.getElementById('fullName').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const city = document.getElementById('city').value;
+        const postNumber = document.getElementById('postNumber').value;
+        const cartItems = []; // Тут ваша логіка для отримання даних з корзини
+
+        // Відправка POST-запиту на сервер
+        const response = await fetch('/add-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fullName,
+                phoneNumber,
+                city,
+                postNumber,
+                cartItems
+            })
+        });
+
+        // Отримуємо результат від сервера
+        const data = await response.json();
+        console.log(data); // Можна виконати додаткову логіку з отриманими даними
+
+        // Закриття модального вікна після відправки даних
+        closeModal();
+    }
+
 
     function closeModal() {
         var modal = document.querySelector('.modal');
