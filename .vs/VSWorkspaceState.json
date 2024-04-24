@@ -7,8 +7,9 @@
     "\\obj",
     "\\obj\\Debug",
     "\\obj\\Release",
-    "\\routes"
+    "\\routes",
+    "\\routes\\routes"
   ],
-  "SelectedNode": "\\obj\\Release\\NodejsWebApp1.njsproj.AssemblyReference.cache",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }

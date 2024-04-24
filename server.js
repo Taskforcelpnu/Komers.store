@@ -12,7 +12,25 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+//auth0
+const { auth } = require('express-openid-connect');
 
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'a long, randomly-generated string stored in env',
+    baseURL: 'http://localhost:1337',
+    clientID: '1LwuGmAKqH4Zzrwl8A3CqGnyAShFc1QO',
+    issuerBaseURL: 'https://dev-6nm2ori0utnhce7b.eu.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
 
 // Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
 let categories = [
