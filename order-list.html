@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі замовлення</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .order-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .order-details h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .order-details p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .order-details .product-list {
+            margin-top: 20px;
+        }
+
+        .product-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .product-item img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .product-item h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product-item p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .total-price {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .delivery-info {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .back-home {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #0022ff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .back-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<!-- Вміст сторінки -->
+<h1>Список замовлень</h1>
+
+<!-- Контейнер для відображення замовлень -->
+<div id="my-order-items"></div>
+
+<!-- Підключення скрипта для взаємодії зі списком замовлень -->
+<script src="order-list.js"></script>
+
+<!-- Інформація про доставку -->
+<div class="delivery-info">
+    <h3>Інформація про доставку:</h3>
+    <p><strong>Місто:</strong> Львів</p>
+    <p><strong>Відділення Нової Пошти:</strong> 1</p>
+    <p><strong>Телефон:</strong> +380674779586</p>
+</div>
+
+<!-- Посилання на головну сторінку -->
+<a href="index.html" class="back-home">Повернутися на головну сторінку</a>
+
+</body>
+</html>

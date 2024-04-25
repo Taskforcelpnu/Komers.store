@@ -7,7 +7,9 @@ app.use(express.json());
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
-
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/order-list.html');
+});
 let categories = [
     { id: 1, name: 'Одяг', description: 'Вміст категорії Одяг' },
     { id: 2, name: 'Взуття', description: 'Вміст категорії Взуття' },

@@ -441,6 +441,32 @@
         closeModal();
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        // Отримати елементи сторінки
+        const orderButton = document.querySelector('.order');
+        const myOrderContent = document.getElementById('my-order');
+        const myOrderItemsContainer = document.getElementById('my-order-items');
+
+        // Обробник події для кнопки "Оформити замовлення"
+        orderButton.addEventListener('click', function () {
+            // Тут може бути ваша логіка для відправки замовлення на сервер
+            // Після успішної обробки замовлення оновіть список товарів у маршруті /my-order
+            const newItem = document.createElement('div');
+            newItem.textContent = 'Тут ваш новий товар';
+            myOrderItemsContainer.appendChild(newItem);
+            myOrderContent.style.display = 'block'; // Показати сторінку з замовленнями після успішного додавання
+        });
+    });
+    function submitOrder() {
+        // Ваша логіка для відправки замовлення на сервер
+
+        // Після успішної відправки даних, перенаправлення на сторінку з деталями замовлення з параметрами URL
+        const productName = 'NIKE AIR MAX PLUS LIGHT BLUE/BLACK'; // Назва товару
+        const quantity = 1; // Кількість
+        const pricePerUnit = 7500; // Ціна за одиницю
+        window.location.href = `order-list.html?product=${encodeURIComponent(productName)}&quantity=${quantity}&price=${pricePerUnit}`;
+    }
+
 
     function closeModal() {
         var modal = document.querySelector('.modal');
