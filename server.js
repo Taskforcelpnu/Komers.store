@@ -33,7 +33,7 @@ app.post('/add-product', (req, res) => {
 });
 let orders = [];
 
-// Додавання замовлення
+// Роут для створення нового замовлення
 app.post('/add-order', (req, res) => {
     const { fullName, phoneNumber, city, postNumber, cartItems } = req.body;
 
@@ -58,45 +58,18 @@ app.post('/add-order', (req, res) => {
     res.status(201).json(newOrder);
 });
 
-// Отримання списку всіх замовлень
-app.get('/orders', (req, res) => {
+// Роут для отримання списку своїх замовлень
+app.get('/my-orders', (req, res) => {
+    const { userId } = req.query;
+
+    // Фільтрація замовлень за ідентифікатором користувача
+    const userOrders = orders.filter(order => order.userId === userId);
+    res.json(userOrders);
+});
+
+// Роут для отримання списку всіх замовлень (для адміна)
+app.get('/all-orders', (req, res) => {
     res.json(orders);
-});
-
-// Оновлення статусу замовлення за його ідентифікатором
-app.get('/update-order/:orderId', (req, res) => {
-    const orderId = parseInt(req.params.orderId);
-    const { status } = req.body;
-
-    // Знаходимо замовлення за його ідентифікатором
-    const orderToUpdate = orders.find(order => order.id === orderId);
-    if (!orderToUpdate) {
-        return res.status(404).json({ message: 'Замовлення не знайдено' });
-    }
-
-    // Оновлюємо статус замовлення
-    orderToUpdate.status = status;
-
-    // Повернення оновленого замовлення у відповіді
-    res.json(orderToUpdate);
-});
-
-// Видалення замовлення за його ідентифікатором
-
-app.get('/delete-order/:orderId', (req, res) => {
-    const orderId = parseInt(req.params.orderId);
-
-    // Знаходимо індекс замовлення за його ідентифікатором
-    const orderIndex = orders.findIndex(order => order.id === orderId);
-    if (orderIndex === -1) {
-        return res.status(404).json({ message: 'Замовлення не знайдено' });
-    }
-
-    // Видаляємо замовлення з масиву за його індексом
-    orders.splice(orderIndex, 1);
-
-    // Повернення повідомлення про успішне видалення замовлення
-    res.json({ message: 'Замовлення успішно видалено' });
 });
 
 const port = process.env.PORT || 1337;
