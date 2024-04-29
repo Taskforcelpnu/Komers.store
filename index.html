@@ -18,7 +18,6 @@
             color: #333;
             font-size: 16px;
         }
-
         .category-btn:hover {
             background-color: #e0e0e0;
         }
@@ -34,11 +33,9 @@
             z-index: 9999; /* Забезпечує, що вікно завжди буде найвищим */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тінь для ефекту підсвічування */
         }
-
         .modal-content {
             text-align: center; /* Центруємо текст */
         }
-
         .input-field {
             width: 80%; /* Ширина поля вводу */
             height: 40px; /* Висота поля вводу */
@@ -46,7 +43,6 @@
             margin-bottom: 10px; /* Відступ між полями вводу */
             box-sizing: border-box; /* Збереження зовнішнього розміру поля введення включаючи падіння і рамку */
         }
-
         .close {
             position: absolute;
             top: 10px;
@@ -54,20 +50,16 @@
             font-size: 24px;
             cursor: pointer;
         }
-
-
         .cart-item-image {
             max-width: 300px; /* Максимальна ширина зображення */
             height: auto; /* Автоматична висота для збереження пропорцій */
             display: block; /* Зробити зображення блоковим елементом */
         }
-
         .products {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-
         .product {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
@@ -76,97 +68,79 @@
             width: calc(33.33% - 20px); /* Ширина одного блоку товару (з врахуванням відступів) */
             margin-bottom: 20px; /* Відступ між блоками товарів */
         }
-
-            .product img {
-                max-width: 100%;
-                height: auto;
-                display: block;
-                border-top-left-radius: 5px; /* Округліть кути зображення вгорі ліворуч */
-                border-top-right-radius: 5px; /* Округліть кути зображення вгорі праворуч */
-                max-height: 300px;
-                margin: 0 auto;
-            }
-
+        .product img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-top-left-radius: 5px; /* Округліть кути зображення вгорі ліворуч */
+            border-top-right-radius: 5px; /* Округліть кути зображення вгорі праворуч */
+            max-height: 300px;
+            margin: 0 auto;
+        }
         .product-info {
             padding: 10px;
             position: relative; /* Забезпечуємо точку відносності для абсолютно позиціонованого елемента */
         }
-
-
         .add-to-cart-btn {
             position: absolute; /* Встановлюємо абсолютне позиціонування */
             bottom: 10px; /* Змінюємо відступ внизу */
             right: 10px; /* Змінюємо відступ справа */
             padding: 8px 16px; /* Збільшуємо відступи в кнопці */
-            background-color: #007bff; /* Змінюємо колір фону кнопки */
+            background-color: #0022ff; /* Змінюємо колір фону кнопки */
             color: #fff; /* Змінюємо колір тексту на білий */
             border: none; /* Видаляємо межі */
             border-radius: 5px; /* Додаємо заокруглені кути */
             cursor: pointer; /* Змінюємо курсор при наведенні на кнопку */
             transition: background-color 0.3s ease; /* Додаємо плавну анімацію зміни кольору фону */
         }
-
-            .add-to-cart-btn:hover {
-                background-color: #0056b3; /* Змінюємо колір фону при наведенні */
-            }
-
-
+        .add-to-cart-btn:hover {
+            background-color: #0056b3; /* Змінюємо колір фону при наведенні */
+        }
         .product h2 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product h3 {
             font-size: 16px;
             margin-top: 0px;
             margin-bottom: 5px;
         }
-
         .product h4 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product h5 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product h6 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product h7 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product h8 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product h9 {
             font-size: 16px;
             margin-top: 0;
             margin-bottom: 5px;
         }
-
         .product p {
             font-size: 14px;
             color: #666;
             margin-bottom: 0;
         }
-
-
-
         body {
             margin: 0;
             padding: 0;
@@ -174,26 +148,22 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
         .container {
             display: flex;
             margin: auto;
             overflow-x: hidden; /* Вимикає горизонтальну прокрутку */
         }
-
         .sidebar {
             width: 200px;
             background-color: #f0f0f0;
             padding: 20px;
         }
-
         .content {
             flex: 1;
             padding: 20px;
             overflow-y: auto; /* Додає вертикальну прокрутку для контенту */
             height: 100%; /* Встановлює висоту контенту */
         }
-
         .underline {
             width: 100%;
             height: 2px;
@@ -203,103 +173,101 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <ul>
-                <li><a href="#home" class="page-link">Головна сторінка</a></li>
-                <li><a href="#cart" class="page-link">Корзина</a></li>
-                <li><a href="#account" class="page-link">Особистий кабінет</a></li>
-            </ul>
-        </div>
-
-        <div class="content" id="home">
-            <h1>Головна сторінка</h1>
-            <div class="underline"></div>
-            <a href="#" class="category-btn" id="clothing">Одяг</a>
-            <a href="#" class="category-btn" id="footwear">Взуття</a>
-            <a href="#" class="category-btn" id="accessories">Аксесуари</a>
-            <div class="products">
-                <div class="product">
-
-                    <div class="product-info">
-                        <img src="http://surl.li/sspxy" alt="Товар 1">
-                        <h1>Nike Air Max 97 Black</h1>
-                        <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <li><a href="#home" class="page-link">Головна сторінка</a></li>
+            <li><a href="#cart" class="page-link">Корзина</a></li>
+            <li><a href="#account" class="page-link">Особистий кабінет</a></li>
+        </ul>
+        <a href="categories.html">Список категорій товарів</a>
+    </div>
+    <div class="content" id="home">
+        <h1>Головна сторінка</h1>
+        <div class="underline"></div>
+        <a href="#clothes" class="category-btn" id="clothes">Одяг</a>
+        <a href="#shoes" class="category-btn" id="shoes">Взуття</a>
+        <a href="#accessories" class="category-btn" id="accessories">Аксесуари</a>
+        <div class="products">
+            <div class="product">
+                <div class="product-info">
+                    <img src="http://surl.li/sspxy" alt="Товар 1">
+                    <h1>Nike Air Max 97 Black</h1>
+                    <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="http://surl.li/ssrrq" alt="Товар 2">
-                        <h2>NIKE AIR MAX 95 SE JEWEL</h2>
-                        <p>6 990 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="http://surl.li/ssrrq" alt="Товар 2">
+                    <h2>NIKE AIR MAX 95 SE JEWEL</h2>
+                    <p>6 990 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/DM0032-401-472x497.webp" alt="Товар 3">
-                        <h3>NIKE AIR MAX PLUS LIGHT BLUE/BLACK</h3>
-                        <p>7500 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/DM0032-401-472x497.webp" alt="Товар 3">
+                    <h3>NIKE AIR MAX PLUS LIGHT BLUE/BLACK</h3>
+                    <p>7500 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FV0393-001-472x497.webp" alt="Товар 4">
-                        <h4>NIKE AIR MAX PLUS BLUE/VIOLET</h4>
-                        <p>8790 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FV0393-001-472x497.webp" alt="Товар 4">
+                    <h4>NIKE AIR MAX PLUS BLUE/VIOLET</h4>
+                    <p>8790 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="https://yesoriginal.com.ua/image/cache/catalog/i/hd/ek/204494f0a20b8e92ef2b1ba9e65fe114-472x497.webp" alt="Товар 4">
-                        <h5>NIKE AIR MAX PLUS TRIPLE BLACK BLACK</h5>
-                        <p>6890 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="https://yesoriginal.com.ua/image/cache/catalog/i/hd/ek/204494f0a20b8e92ef2b1ba9e65fe114-472x497.webp" alt="Товар 4">
+                    <h5>NIKE AIR MAX PLUS TRIPLE BLACK BLACK</h5>
+                    <p>6890 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/CD0609-022-472x497.webp" alt="Товар 4">
-                        <h6>NIKE TN AIR MAX PLUS GS BLACK BRIGHT CACTUS WHITE/BLUE</h6>
-                        <p>5390 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/CD0609-022-472x497.webp" alt="Товар 4">
+                    <h6>NIKE TN AIR MAX PLUS GS BLACK BRIGHT CACTUS WHITE/BLUE</h6>
+                    <p>5390 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="https://idealsport.com.ua/content/images/11/600x579l80mc0/67983753071998.webp" alt="Товар 4">
-                        <h7>Nike Sportswear Air Max Plus Mercurial</h7>
-                        <p>7839 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="https://idealsport.com.ua/content/images/11/600x579l80mc0/67983753071998.webp" alt="Товар 4">
+                    <h7>Nike Sportswear Air Max Plus Mercurial</h7>
+                    <p>7839 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FD4290-001-472x497.webp" alt="Товар 4">
-                        <h8>NIKE AIR MAX PLUS DRIFT BEIGE/BROWN </h8>
-                        <p>9090 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FD4290-001-472x497.webp" alt="Товар 4">
+                    <h8>NIKE AIR MAX PLUS DRIFT BEIGE/BROWN </h8>
+                    <p>9090 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
-                <div class="product">
-                    <div class="product-info">
-                        <img src="http://surl.li/ssrqn" alt="Товар 4">
-                        <h9>NIKE AIR MAX 720 DEEP ROYAL BLUE </h9>
-                        <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
-                    </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <img src="http://surl.li/ssrqn" alt="Товар 4">
+                    <h9>NIKE AIR MAX 720 DEEP ROYAL BLUE </h9>
+                    <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
         </div>
-
-
-        
-
-        <div class="content" id="account" style="display: none;">
-            <h1>Особистий кабінет</h1>
-            <div class="underline"></div>
-            <p>тут має бути вміст сторінки</p>
-            <button id="loginButton">Увійти</button>
-            <button id="logoutButton" style="display: none;">Вийти</button>
-        </div>
-
     </div>
-
+    <div class="content" id="account" style="display: none;">
+        <h1>Особистий кабінет</h1>
+        <div class="underline"></div>
+        <p>тут має бути вміст сторінки</p>
+    </div>
+    <div class="content" id="cart" style="display: none;">
+        <h1>Корзина</h1>
+        <div class="underline"></div>
+        <div id="cart-items"></div> <!-- Контейнер для товарів у корзині -->
+        <p><button class="order" onclick="openModal()">Оформити замовлення</button></p>
+    </div>
+</div>
 <script>
+    var productsInBucket = [];
     document.querySelectorAll('.page-link').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault();
@@ -328,10 +296,15 @@
                 cartItem.appendChild(productImage);
                 cartItem.innerHTML += productName + ' - ' + productPrice;
                 document.getElementById('cart-items').appendChild(cartItem);
+                console.log(productImageSrc)
+                productsInBucket.push({
+                    productName,
+                    productPrice,
+                    productImageSrc
+                })
             });
         });
     });
-
     // Функція для отримання тексту з першого доступного елемента вказаних типів
     function getProductText(parentElement, ...headerTags) {
         for (const tag of headerTags) {
@@ -348,48 +321,41 @@
         modal.classList.add('modal');
         modal.style.width = '800px';
         modal.style.height = '400px';
-
         // Додавання контенту в модальне вікно (наприклад, текст або інші елементи)
         modal.innerHTML = `
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p></p>
-            <input type="text" class="input-field" id="fullName" placeholder="Введіть Прізвище, Ім'я "><br>
-            <input type="text" class="input-field" id="phoneNumber" placeholder="Номер телефону"><br>
-            <input type="text" class="input-field" id="city" placeholder="Населений пункт"><br>
-            <input type="text" class="input-field" id="postNumber" placeholder="Номер відділення пошти або поштомату"><br>
-
-        </div>`;
-
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p></p>
+        <input type="text" class="input-field" id="fullName" placeholder="Введіть Прізвище, Ім'я "><br>
+        <input type="text" class="input-field" id="phoneNumber" placeholder="Номер телефону"><br>
+        <input type="text" class="input-field" id="city" placeholder="Населений пункт"><br>
+        <input type="text" class="input-field" id="postNumber" placeholder="Номер відділення пошти або поштомату"><br>
+        <button onclick="submitOrder()">Відправити</button>
+    </div>`;
         // Додавання модального вікна до body
         document.body.appendChild(modal);
-
         var fullNameInput = document.getElementById('fullName');
         var phoneNumberInput = document.getElementById('phoneNumber');
         var cityInput = document.getElementById('city');
         var postNumberInput = document.getElementById('postNumber');
-
         fullNameInput.addEventListener('input', function (event) {
             var value = event.target.value;
             if (!/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/.test(value)) {
                 event.target.value = value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]/g, '');
             }
         });
-
         phoneNumberInput.addEventListener('input', function (event) {
             var value = event.target.value;
             if (!/^\d*$/.test(value)) {
                 event.target.value = value.replace(/\D/g, '');
             }
         });
-
         cityInput.addEventListener('input', function (event) {
             var value = event.target.value;
             if (!/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/.test(value)) {
                 event.target.value = value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]/g, '');
             }
         });
-
         postNumberInput.addEventListener('input', function (event) {
             var value = event.target.value;
             if (!/^\d*$/.test(value)) {
@@ -397,11 +363,48 @@
             }
         });
     }
-
     function closeModal() {
         var modal = document.querySelector('.modal');
         modal.parentNode.removeChild(modal);
     }
+
+    async function submitOrder() {
+            const fullName = document.getElementById('fullName').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const city = document.getElementById('city').value;
+            const postNumber = document.getElementById('postNumber').value;
+            // const cartItems = []; // Тут ваша логіка для отримання даних з корзини
+            if (productsInBucket.length < 0) {
+                return console.log("Bucket is empty")
+            }
+            // Відправка POST-запиту на сервер
+            const response = await fetch('http://localhost:1337/add-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fullName,
+                    phoneNumber,
+                    city,
+                    postNumber,
+                    productsInBucket
+                    // cartItems
+                })
+            });
+
+            if (response.ok) {
+                const order = await response.json();
+                console.log('Замовлення успішно відправлено:', order);
+                closeModal()
+                window.open('order-list.html', '_blank');
+            } else {
+                console.error('Помилка під час відправлення замовлення');
+                // Додайте тут логіку для відображення повідомлення про помилку
+            }
+        }
+
+
 
     document.querySelectorAll('.category-btn').forEach(function (btn) {
         btn.addEventListener('click', function (event) {
