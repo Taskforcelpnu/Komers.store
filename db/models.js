@@ -35,12 +35,3 @@ Purchase.hasMany(Product);
 Purchase.belongsTo(Product, { foreignKey: 'id_product' })
 
 module.exports = { User, Product, Purchase }
-
-const Order = sequelize.define('Order', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    productId: { type: DataTypes.INTEGER, allowNull: false },
-    quantity: { type: DataTypes.INTEGER, allowNull: false },
-    customerName: { type: DataTypes.STRING, allowNull: false },
-});
-
-module.exports = Order;

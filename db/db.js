@@ -13,13 +13,6 @@ module.exports = new Sequelize(
         port: process.env.DB_PORT,
     }
 
+
+
 )
-
-const sequelize = new Sequelize('database', 'username', 'password', {
-    dialect: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    // Other options
-});
-
-module.exports = sequelize;
