@@ -17,9 +17,14 @@
             text-decoration: none;
             color: #333;
             font-size: 16px;
+            width: 100%;
         }
+        .category-btn-active {
+            background-color: yellow;
+        }
+
         .category-btn:hover {
-            background-color: #e0e0e0;
+            box-shadow: 0 0 11px rgba(33,33,33,.2);
         }
         /* Оновлені CSS стилі */
         .modal {
@@ -180,7 +185,8 @@
             <li><a href="#cart" class="page-link">Корзина</a></li>
             <li><a href="#account" class="page-link">Особистий кабінет</a></li>
         </ul>
-        <button class="category-btn" id="all">Всі товари</button>
+        <hr/>
+        <button class="category-btn category-btn-active" id="all">Всі товари</button>
         <button class="category-btn" id="clothes">Одяг</button>
         <button class="category-btn" id="shoes">Взуття</button>
         <button class="category-btn" id="accessories">Аксесуари</button>
@@ -460,6 +466,10 @@
                     product.style.display = 'none';
                 }
             });
+            document.querySelectorAll('.category-btn').forEach(function (btn) {
+                btn.classList.remove('category-btn-active');
+            });
+            this.classList.add('category-btn-active');
         });
     });
 </script>
