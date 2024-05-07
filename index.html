@@ -188,10 +188,12 @@
             <li><a href="#account" class="page-link">Особистий кабінет</a></li>
         </ul>
         <hr/>
-        <button class="category-btn category-btn-active" id="all">Всі товари</button>
-        <button class="category-btn" id="clothes">Одяг</button>
-        <button class="category-btn" id="shoes">Взуття</button>
-        <button class="category-btn" id="accessories">Аксесуари</button>
+        <div class="buttons-holder">
+            <button class="category-btn category-btn-active" id="all">Всі товари</button>
+            <button class="category-btn" id="clothes">Одяг</button>
+            <button class="category-btn" id="shoes">Взуття</button>
+            <button class="category-btn" id="accessories">Аксесуари</button>
+        </div>
     </div>
     <div class="content" id="home">
         <h1 id="mainTitle">Komerts.Store</h1>
@@ -332,8 +334,16 @@
     document.querySelectorAll('.page-link').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault();
+            const buttons = document.querySelector(".buttons-holder")
+            const sidebar = document.querySelector(".sidebar")
             var targetId = this.getAttribute('href').substr(1);
             document.querySelectorAll('.content').forEach(function (content) {
+                buttons.style.display = "none"
+                sidebar.style.width = "100vw"
+                if (targetId ==="home") {
+                    buttons.style.display = "block"
+                    sidebar.style.width = "200px"
+                }
                 if (content.id === targetId) {
                     content.style.display = 'block';
                 } else {
