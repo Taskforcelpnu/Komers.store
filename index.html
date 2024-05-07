@@ -390,7 +390,7 @@
                 const order = await response.json();
                 console.log('Замовлення успішно відправлено:', order);
                 closeModal()
-                window.open('order-list.html', '_blank');
+                window.open('/order-list.html',"_self");
             } else {
                 console.error('Помилка під час відправлення замовлення');
                 // Додайте тут логіку для відображення повідомлення про помилку
