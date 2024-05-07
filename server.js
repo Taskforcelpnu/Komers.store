@@ -126,18 +126,5 @@ app.get('/get-order', (req, res) => {
     res.json(orders);
 });
 
-// Роут для отримання списку своїх замовлень
-/*app.get('/my-orders', (req, res) => {
-    const { userId } = req.query;
-
-    // Фільтрація замовлень за ідентифікатором користувача
-    const userOrders = orders.filter(order => order.userId === userId);
-    res.json(userOrders);
-});
-
-// Роут для отримання списку всіх замовлень (для адміна)
-app.get('/all-orders', (req, res) => {
-    res.json(orders);
-});*/
 
 
