@@ -6,6 +6,10 @@
     <title></title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        #mainTitle {
+            text-align: center;
+            color: floralwhite;
+        }
         .category-btn {
             display: block;
             margin-bottom: 10px;
@@ -66,7 +70,7 @@
             gap: 20px;
         }
         .product {
-            background-color: #f9f9f9;
+            background: rgba(250, 250, 250, 0.4);
             border: 1px solid #ddd;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Додати тінь для ефекту підняття */
@@ -87,9 +91,6 @@
             position: relative; /* Забезпечуємо точку відносності для абсолютно позиціонованого елемента */
         }
         .add-to-cart-btn {
-            position: absolute; /* Встановлюємо абсолютне позиціонування */
-            bottom: 10px; /* Змінюємо відступ внизу */
-            right: 10px; /* Змінюємо відступ справа */
             padding: 8px 16px; /* Збільшуємо відступи в кнопці */
             background-color: #0022ff; /* Змінюємо колір фону кнопки */
             color: #fff; /* Змінюємо колір тексту на білий */
@@ -168,6 +169,7 @@
             padding: 20px;
             overflow-y: auto; /* Додає вертикальну прокрутку для контенту */
             height: 100%; /* Встановлює висоту контенту */
+            background: rgba(110, 87, 65, 0.87);
         }
         .underline {
             width: 100%;
@@ -192,63 +194,71 @@
         <button class="category-btn" id="accessories">Аксесуари</button>
     </div>
     <div class="content" id="home">
-        <h1>Головна сторінка</h1>
+        <h1 id="mainTitle">Komerts.Store</h1>
         <div class="underline"></div>
         <div class="products">
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/i/jo/fc/7b9c26d1a7512668c85a7719c31c5f98-472x497.webp" alt="Товар 1">
                     <h2>Nike Air Max 97 Black</h2>
-                    <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/646f07ca555ee-6389105.jpeg" alt="Товар 2">
                     <h2>NIKE AIR MAX 95 SE JEWEL</h2>
-                    <p>6 990 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/DM0032-401-472x497.webp" alt="Товар 3">
                     <h2>NIKE AIR MAX PLUS LIGHT BLUE/BLACK</h2>
-                    <p>7500 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FV0393-001-472x497.webp" alt="Товар 4">
                     <h2>NIKE AIR MAX PLUS BLUE/VIOLET</h2>
-                    <p>8790 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/i/hd/ek/204494f0a20b8e92ef2b1ba9e65fe114-472x497.webp" alt="Товар 4">
                     <h2>NIKE AIR MAX PLUS TRIPLE BLACK BLACK</h2>
-                    <p>6890 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/CD0609-022-472x497.webp" alt="Товар 4">
                     <h2>NIKE TN AIR MAX PLUS GS BLACK BRIGHT CACTUS WHITE/BLUE</h2>
-                    <p>5390 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://idealsport.com.ua/content/images/11/600x579l80mc0/67983753071998.webp" alt="Товар 4">
                     <h2>Nike Sportswear Air Max Plus Mercurial</h2>
-                    <p>7839 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="shoes">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FD4290-001-472x497.webp" alt="Товар 4">
                     <h2>NIKE AIR MAX PLUS DRIFT BEIGE/BROWN </h2>
-                    <p>9090 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
 
@@ -256,28 +266,32 @@
                 <div class="product-info" data-product="clothes">
                     <img src="https://images.prom.ua/4295744686_w640_h640_4295744686.jpg " alt="Товар 4">
                     <h2>Embroidered shirt for a boy KOZACHEK ILYA 122 cm Multicolored </h2>
-                    <p>2999 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="clothes">
                     <img src="https://futbokraina.com.ua/image/cache/new/catalog/GS/mug-f/black-71377.jpg" alt="Товар 4">
                     <h2>T-SHORT </h2>
-                    <p>6799 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="clothes">
                     <img src="https://turi.com.ua/image/cache/catalog/a13-1000x1000.jpg.webp" alt="Товар 4">
                     <h2> Tactical jacket Softshell Black</h2>
-                    <p>1999 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="accessories">
                     <img src="https://timeshop.com.ua/images/ab__webp/thumbnails/624/460/detailed/221/YA1264074_JPG.webp" alt="Товар 4">
                     <h2>Gucci watch YA1264155</h2>
-                    <p>109999 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
 
@@ -285,14 +299,16 @@
                 <div class="product-info" data-product="accessories">
                     <img src="https://optim.tildacdn.com/stor3936-3536-4133-a431-633934623065/-/format/webp/98496525.png" alt="Товар 4">
                     <h2> Computer glasses, hexagonal, unisex, black and silver</h2>
-                    <p>14999 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info" data-product="clothes">
                     <img src="https://images.prom.ua/5141425004_w640_h640_5141425004.jpg" alt="Товар 4">
                     <h2> Anti-thermal poncho cape A6286 Olive</h2>
-                    <p>14999 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
+                    <p>7500 ₴</p>
+                    <button class="add-to-cart-btn">Додати в корзину</button>
                 </div>
             </div>
         </div>
