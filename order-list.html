@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі замовлення</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .order-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .order-details h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .order-details p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .order-details .product-list {
+            margin-top: 20px;
+        }
+
+        .product-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .product-item img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .product-item h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product-item p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .total-price {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .delivery-info {
+            margin-top: 20px;
+        }
+
+        .back-home {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #0022ff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .back-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="order-details">
+    <h2>Деталі замовлення</h2>
+</div>
+
+<a href="/" class="back-home">Повернутися на головну сторінку</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        try {
+            const response = await fetch('http://localhost:1337/get-order');
+            if (!response.ok) {
+                throw new Error('Помилка отримання даних про замовлення');
+            }
+            const order = await response.json();
+            displayOrderDetails(order[0]);
+        } catch (error) {
+            console.error(error.message);
+            // Додайте тут логіку для відображення повідомлення про помилку
+        }
+    });
+
+    function displayOrderDetails(order) {
+        const orderDetailsContainer = document.querySelector('.order-details');
+        const orderIdElement = document.createElement('p');
+        orderIdElement.textContent = `Номер замовлення: #${order.id}`;
+
+        const orderDateElement = document.createElement('p');
+        orderDateElement.textContent = `Дата замовлення: ${formatDate(new Date())}`;
+
+        const fullNameElement = document.createElement('p');
+        fullNameElement.textContent = `ПІБ: ${order.fullName}`;
+        const phoneNumberElement = document.createElement('p');
+        phoneNumberElement.textContent = `Номер телефону: ${order.phoneNumber}`;
+        const cityElement = document.createElement('p');
+        cityElement.textContent = `Місто: ${order.city}`;
+        const postNumberElement = document.createElement('p');
+        postNumberElement.textContent = `Номер відділення пошти: ${order.postNumber}`;
+        const productListElement = document.createElement('div');
+        productListElement.classList.add('product-list');
+
+        order.productsInBucket.forEach(item => {
+            const productItemElement = document.createElement('div');
+            productItemElement.classList.add('product-item');
+            const productImageElement = document.createElement('img');
+            console.log(item.productImageSrc)
+            productImageElement.src = item.productImageSrc;
+            productImageElement.alt = item.productName;
+            const productNameElement = document.createElement('h3');
+            productNameElement.textContent = item.productName;
+            const productPriceElement = document.createElement('p');
+            productPriceElement.textContent = `Ціна: ${item.productPrice}`;
+            productItemElement.appendChild(productNameElement);
+            productItemElement.appendChild(productPriceElement);
+            productListElement.appendChild(productImageElement);
+            productListElement.appendChild(productItemElement);
+        });
+
+        const totalOrderPriceElement = document.createElement('p');
+        totalOrderPriceElement.classList.add('total-price');
+        totalOrderPriceElement.textContent = `Загальна вартість: ${calculateTotalPrice(order.productsInBucket)} грн`;
+        orderDetailsContainer.appendChild(orderIdElement);
+        orderDetailsContainer.appendChild(orderDateElement);
+        orderDetailsContainer.appendChild(fullNameElement);
+        orderDetailsContainer.appendChild(phoneNumberElement);
+        orderDetailsContainer.appendChild(cityElement);
+        orderDetailsContainer.appendChild(postNumberElement);
+        orderDetailsContainer.appendChild(productListElement);
+        orderDetailsContainer.appendChild(totalOrderPriceElement);
+        orderDetailsContainer.appendChild(deliveryInfoElement);
+    }
+
+    // Функція для форматування дати
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+        return new Date(dateString).toLocaleDateString('uk-UA', options);
+    }
+
+    // Функція для підрахунку загальної вартості замовлення
+    function calculateTotalPrice(products) {
+        return products.reduce((total, product) => total + parseFloat(product.productPrice.replace(/\D/g, '')), 0);
+    }
+</script>
+</body>
+</html>

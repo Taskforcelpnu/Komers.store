@@ -2,18 +2,38 @@ const express = require('express');
 const http = require('http');
 
 const models = require('./db/models')
-//database
 var sequelize = require('./db/db');
 
-
+// Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
 const app = express();
+app.use(express.json());
+
+
+app.use((req, res, next) => {
+    // ЩОБ HTML FILES БУЛИ ЗАПУЩЕНІ НА 63342 ЛОКАЛХОСТІ
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:1337');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
+});
+
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/order-list.html', function (req, res) {
+    res.sendFile(__dirname + '/order-list.html');
+});
+
 //auth0
 const { auth } = require('express-openid-connect');
+const {json} = require("express");
+const bodyParser = require("express");
 
 const config = {
     authRequired: false,
@@ -32,57 +52,79 @@ app.get('/', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-// Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
+
+
 let categories = [
-    { id: 1, name: 'одяг' },
-    { id: 2, name: 'взуття' },
-    { id: 3, name: 'аксесуари' }
+    { id: 1, name: 'Одяг', description: 'Вміст категорії Одяг' },
+    { id: 2, name: 'Взуття', description: 'Вміст категорії Взуття' },
+    { id: 3, name: 'Аксесуари', description: 'Вміст категорії Аксесуари' }
 ];
 
 let products = [];
 
-// Додавання продукту до масиву products
-products.push({
-    id: 1,
-    name: 'Сукня',
-    price: 100,
-    category: { id: 1, name: 'одяг' }
-});
 
-
-products.push({
-    id: 2,
-    name: 'Мокасіни',
-    price: 100,
-    category: { id: 2, name: 'взуття' }
-})
-
-app.use(express.json());
-
-// Роут для отримання списку категорій
 app.get('/categories', (req, res) => {
     res.json(categories);
 });
 
-// Роут для отримання списку товарів
-app.get('/products', (req, res) => {
-    res.json(products);
-});
-
-app.get('/add-product', (req, res) => {
-    const { name, categoryId } = req.query;
+app.post('/add-product', (req, res) => {
+    const { name, categoryId } = req.body;
     const category = categories.find(cat => cat.id === parseInt(categoryId));
     if (!category) {
-        return res.status(400).json({ message: 'Категорія не знайдена'});
+        return res.status(400).json({ message: 'Категорія не знайдена' });
     }
     const newProduct = { id: products.length + 1, name, categoryId };
     products.push(newProduct);
-    res.status(201).json(newProduct); // Повертаємо статус 201 та створений продукт у відповіді
+    res.status(201).json(newProduct);
 });
+
+
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Змінна для збереження замовлень (тимчасово у пам'яті сервера)
+let orders = [] // important
+
+// Запуск сервера
 
 const port = process.env.PORT || 1337;
 const server = http.createServer(app);
 
 server.listen(port, () => {
-    console.log(`The server is started on the port ${port}`);
+    console.log(`Сервер запущено на порту ${port}`);
 });
+// Роут для створення нового замовлення
+app.post('/add-order', (req, res) => {
+    const { fullName, phoneNumber, city, postNumber,productsInBucket } = req.body;
+    console.log("test")
+    // Перевірка на обов'язкові поля
+    if (!fullName || !phoneNumber || !city || !postNumber) {
+        return res.status(400).json({ message: 'Неповний або некоректний запит' });
+    }
+
+    // Створення нового замовлення
+    const newOrder = {
+        id: orders.length + 1,
+        fullName,
+        phoneNumber,
+        city,
+        postNumber,
+        productsInBucket,
+        status: 'pending' // Початковий статус - очікується обробка
+    };
+    orders.push(newOrder);
+    console.log(orders)
+    // Повернення статусу 201 та створеного замовлення у відповіді
+    res.status(201).json(newOrder);
+});
+
+// Роут для отримання списку замовлень
+app.get('/get-order', (req, res) => {
+    // Повертаємо список замовлень у відповідь
+    res.json(orders);
+});
+
+
+

@@ -34,6 +34,4 @@ Purchase.belongsTo(User, { foreignKey: 'user_id' })
 Purchase.hasMany(Product);
 Purchase.belongsTo(Product, { foreignKey: 'id_product' })
 
-module.exports = { User, Product, Purchase } 
-
-
+module.exports = { User, Product, Purchase }

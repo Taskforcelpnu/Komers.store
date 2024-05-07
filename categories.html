@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.category-btn {
+display: block;
+margin-bottom: 10px;
+padding: 8px 16px;
+background-color: #f0f0f0;
+border: 1px solid #ccc;
+border-radius: 5px;
+cursor: pointer;
+text-decoration: none;
+color: #333;
+font-size: 16px;
+}
+
+.category-btn:hover {
+background-color: #e0e0e0;
+
+}
+</style>
+
+<title>Список категорій</title>
+<body>
+<h1>Список категорій</h1>
+<ul id="categories-list"></ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('/categories') // Запит на сервер для отримання списку категорій
+            .then(response => response.json())
+            .then(data => {
+                const categoriesList = document.getElementById('categories-list');
+
+                data.forEach(category => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `/category.html?categoryId=${category.id}`; // Генеруємо посилання з параметром categoryId
+                    link.textContent = category.name;
+                    listItem.appendChild(link);
+                    categoriesList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Помилка отримання категорій:', error));
+    });
+
+</script>
+</body>
+</html>
