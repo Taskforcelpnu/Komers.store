@@ -192,7 +192,7 @@
             <div class="product">
                 <div class="product-info">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/i/jo/fc/7b9c26d1a7512668c85a7719c31c5f98-472x497.webp" alt="Товар 1">
-                    <h1>Nike Air Max 97 Black</h1>
+                    <h2>Nike Air Max 97 Black</h2>
                     <p>4800 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
@@ -206,42 +206,42 @@
             <div class="product">
                 <div class="product-info">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/DM0032-401-472x497.webp" alt="Товар 3">
-                    <h3>NIKE AIR MAX PLUS LIGHT BLUE/BLACK</h3>
+                    <h2>NIKE AIR MAX PLUS LIGHT BLUE/BLACK</h2>
                     <p>7500 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FV0393-001-472x497.webp" alt="Товар 4">
-                    <h4>NIKE AIR MAX PLUS BLUE/VIOLET</h4>
+                    <h2>NIKE AIR MAX PLUS BLUE/VIOLET</h2>
                     <p>8790 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/i/hd/ek/204494f0a20b8e92ef2b1ba9e65fe114-472x497.webp" alt="Товар 4">
-                    <h5>NIKE AIR MAX PLUS TRIPLE BLACK BLACK</h5>
+                    <h2>NIKE AIR MAX PLUS TRIPLE BLACK BLACK</h2>
                     <p>6890 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/CD0609-022-472x497.webp" alt="Товар 4">
-                    <h6>NIKE TN AIR MAX PLUS GS BLACK BRIGHT CACTUS WHITE/BLUE</h6>
+                    <h2>NIKE TN AIR MAX PLUS GS BLACK BRIGHT CACTUS WHITE/BLUE</h2>
                     <p>5390 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info">
                     <img src="https://idealsport.com.ua/content/images/11/600x579l80mc0/67983753071998.webp" alt="Товар 4">
-                    <h7>Nike Sportswear Air Max Plus Mercurial</h7>
+                    <h2>Nike Sportswear Air Max Plus Mercurial</h2>
                     <p>7839 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
             <div class="product">
                 <div class="product-info">
                     <img src="https://yesoriginal.com.ua/image/cache/catalog/cover/FD4290-001-472x497.webp" alt="Товар 4">
-                    <h8>NIKE AIR MAX PLUS DRIFT BEIGE/BROWN </h8>
+                    <h2>NIKE AIR MAX PLUS DRIFT BEIGE/BROWN </h2>
                     <p>9090 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
                 </div>
             </div>
@@ -279,7 +279,7 @@
         document.querySelectorAll('.add-to-cart-btn').forEach(function (btn) {
             btn.addEventListener('click', function (event) {
                 var productInfo = this.closest('.product-info');
-                var productName = getProductText(productInfo, 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9');
+                var productName = productInfo.querySelector("h2").textContent;
                 var productPrice = productInfo.querySelector('p').textContent;
                 var productImageSrc = productInfo.querySelector('img').src;
                 var cartItem = document.createElement('div');
