@@ -180,14 +180,14 @@
             <li><a href="#cart" class="page-link">Корзина</a></li>
             <li><a href="#account" class="page-link">Особистий кабінет</a></li>
         </ul>
-        <a href="categories.html">Список категорій товарів</a>
+        <button class="category-btn" id="all">Всі товари</button>
+        <button class="category-btn" id="clothes">Одяг</button>
+        <button class="category-btn" id="shoes">Взуття</button>
+        <button class="category-btn" id="accessories">Аксесуари</button>
     </div>
     <div class="content" id="home">
         <h1>Головна сторінка</h1>
         <div class="underline"></div>
-        <a href="#clothes" class="category-btn" id="clothes">Одяг</a>
-        <a href="#shoes" class="category-btn" id="shoes">Взуття</a>
-        <a href="#accessories" class="category-btn" id="accessories">Аксесуари</a>
         <div class="products">
             <div class="product">
                 <div class="product-info" data-product="shoes">
@@ -283,7 +283,7 @@
                 </div>
             </div>
             <div class="product">
-                <div class="product-info" data-product="accessories">
+                <div class="product-info" data-product="clothes">
                     <img src="https://images.prom.ua/5141425004_w640_h640_5141425004.jpg" alt="Товар 4">
                     <h2> Anti-thermal poncho cape A6286 Olive</h2>
                     <p>14999 ₴<button class="add-to-cart-btn"><img src="" alt="Додати в корзину"></button> <!-- Переміщена кнопка --></p>
@@ -449,22 +449,17 @@
         btn.addEventListener('click', function (event) {
             event.preventDefault();
             var category = this.getAttribute('id');
+            var products = document.querySelectorAll('.product');
 
-            fetch('/api/products/' + category)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('products-container').innerHTML = '';
+            products.forEach(function (product) {
+                var productCategory = product.querySelector('.product-info').getAttribute('data-product');
 
-                    data.forEach(product => {
-                        product.price = undefined;
-                        var productHtml = `<div class="product">
-                                          <h3>${product.name}</h3>
-                                          <p>${product.price}</p>
-                                      </div>`;
-                        document.getElementById('products-container').innerHTML += productHtml;
-                    });
-                })
-                .catch(error => console.error('Помилка отримання товарів:', error));
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
         });
     });
 </script>
