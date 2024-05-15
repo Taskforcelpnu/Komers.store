@@ -320,7 +320,12 @@
     <div class="content" id="account" style="display: none;">
         <h1>Особистий кабінет</h1>
         <div class="underline"></div>
-        <p>тут має бути вміст сторінки</p>
+        <form id="createProductForm">
+            <input type="text" id="productName" placeholder="Назва товару" required>
+            <input type="text" id="productImageSrc" placeholder="Посилання на зображення" required>
+            <input type="text" id="productPrice" placeholder="Ціна" required>
+            <button type="submit" id="createProductBtn">Створити товар</button>
+        </form>
     </div>
     <div class="content" id="cart" style="display: none;">
         <h1>Корзина</h1>
@@ -353,7 +358,56 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', async function () {
+        const displayProducts = async () => {
+            const response = await fetch('http://localhost:3000/products', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const products = await response.json();
+                const productsContainer = document.querySelector('.products');
+
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+
+                    const productInfoDiv = document.createElement('div');
+                    productInfoDiv.classList.add('product-info');
+                    productInfoDiv.setAttribute('data-product', product.category);
+
+                    const productImage = document.createElement('img');
+                    productImage.src = product.imageSrc;
+                    productImage.alt = product.name;
+
+                    const productName = document.createElement('h2');
+                    productName.textContent = product.name;
+
+                    const productPrice = document.createElement('p');
+                    productPrice.textContent = `${product.price} ₴`;
+
+                    const addToCartBtn = document.createElement('button');
+                    addToCartBtn.classList.add('add-to-cart-btn');
+                    addToCartBtn.textContent = 'Додати в корзину';
+
+                    productInfoDiv.appendChild(productImage);
+                    productInfoDiv.appendChild(productName);
+                    productInfoDiv.appendChild(productPrice);
+                    productInfoDiv.appendChild(addToCartBtn);
+
+                    productDiv.appendChild(productInfoDiv);
+                    productsContainer.appendChild(productDiv);
+                });
+            } else {
+                console.error('Помилка при отриманні списку товарів');
+            }
+        };
+
+        await displayProducts();
+
         document.querySelectorAll('.add-to-cart-btn').forEach(function (btn) {
             btn.addEventListener('click', function (event) {
                 var productInfo = this.closest('.product-info');
@@ -374,6 +428,36 @@
                     productImageSrc
                 })
             });
+        });
+
+        const createProductForm = document.getElementById('createProductForm');
+        createProductForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const productName = document.getElementById('productName').value;
+            const productImageSrc = document.getElementById('productImageSrc').value;
+            const productPrice = document.getElementById('productPrice').value;
+
+            // Відправка POST-запиту на сервер для створення товару
+            const response = await fetch('http://localhost:3000/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: productName,
+                    imageSrc: productImageSrc,
+                    price: productPrice,
+                    id: Math.random()
+                })
+            });
+
+            if (response.ok) {
+                alert('Товар успішно створено');
+                location.reload();
+            } else {
+                alert('Помилка при створенні товару');
+            }
         });
     });
     // Функція для отримання тексту з першого доступного елемента вказаних типів
