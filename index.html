@@ -438,8 +438,10 @@
         const createProductForm = document.getElementById('createProductForm');
         createProductForm.addEventListener('submit', async function (event) {
             event.preventDefault();
-            const formData = new FormData(this);
             const category = document.getElementById('categoryDropdown').value; // Отримуємо значення категорії з дропдауну
+            const productName = document.getElementById('productName').value;
+            const productImageSrc = document.getElementById('productImageSrc').value;
+            const productPrice = document.getElementById('productPrice').value;
 
             // Відправка POST-запиту на сервер для створення товару
             const response = await fetch('http://localhost:3000/products', {
@@ -448,7 +450,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    ...Object.fromEntries(formData.entries()), // Додаємо дані з форми
+                    name: productName,
+                    imageSrc: productImageSrc,
+                    price: productPrice,
                     category,
                     id: Date.now().toString() + Math.floor(Math.random() * 1000)
                 })
