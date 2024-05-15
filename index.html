@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -331,6 +331,14 @@
             </select>
             <button type="submit" id="createProductBtn">Створити товар</button>
         </form>
+
+        <h1>Видалення товару</h1>
+        <!-- Форма для видалення товару -->
+        <form id="deleteProductForm">
+            <input type="text" id="productNameToDelete" placeholder="Назва товару для видалення" required>
+            <button type="submit" id="deleteProductBtn">Видалити товар</button>
+        </form>
+
     </div>
     <div class="content" id="cart" style="display: none;">
         <h1>Корзина</h1>
@@ -463,6 +471,42 @@
                 location.reload();
             } else {
                 alert('Помилка при створенні товару');
+            }
+        });
+
+        const deleteProductForm = document.getElementById('deleteProductForm');
+        deleteProductForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const productNameToDelete = document.getElementById('productNameToDelete').value;
+            console.log(productNameToDelete)
+            const products = await fetch('http://localhost:3000/products', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const productsData = await products.json();
+            const deleteProduct = productsData.find(product => product.name === productNameToDelete);
+            const deleteId = deleteProduct?.id
+            if (deleteId) {
+            // Відправка DELETE-запиту на сервер для видалення товару за іменем
+            const response = await fetch(`http://localhost:3000/products/${deleteId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (response.ok) {
+                alert('Товар успішно видалено');
+                location.reload();
+            } else {
+                alert('Помилка при видаленні товару');
+            }
+            }
+            else {
+                alert("Вказаного товару не існує в бд");
+
             }
         });
     });
