@@ -5,6 +5,7 @@
     "express": "^4.19.2",
     "express-fileupload": "^1.5.0",
     "express-openid-connect": "^2.17.1",
+    "json-server": "^1.0.0-beta.0",
     "mysql2": "^3.9.7",
     "node": "^18.20.2",
     "pg": "^8.11.5",
@@ -19,7 +20,8 @@
   "main": "server.js",
   "name": "nodejs-web-app1",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:db": "npx json-server db.json"
   },
   "version": "0.0.0",
   "keywords": [],

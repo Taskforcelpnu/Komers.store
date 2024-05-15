@@ -1,0 +1,10 @@
+{
+  "products": [
+    {
+      "id": 0.20988206625752626,
+      "name": "keks",
+      "imageSrc": "https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci83YzQzYTY2N2IzNzdhMGIwODY1ZmM1YmZlNWRjYTIyNj9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.7I3NTHKmzETuZT5abWxZifHiH6FPoGEKEUEoLlVSjXA",
+      "price": "333"
+    }
+  ]
+}
