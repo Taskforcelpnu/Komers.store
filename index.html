@@ -324,6 +324,11 @@
             <input type="text" id="productName" placeholder="Назва товару" required>
             <input type="text" id="productImageSrc" placeholder="Посилання на зображення" required>
             <input type="text" id="productPrice" placeholder="Ціна" required>
+            <select id="categoryDropdown">
+                <option value="clothes">Одяг</option>
+                <option value="shoes">Взуття</option>
+                <option value="accessories">Аксесуари</option>
+            </select>
             <button type="submit" id="createProductBtn">Створити товар</button>
         </form>
     </div>
@@ -433,10 +438,8 @@
         const createProductForm = document.getElementById('createProductForm');
         createProductForm.addEventListener('submit', async function (event) {
             event.preventDefault();
-
-            const productName = document.getElementById('productName').value;
-            const productImageSrc = document.getElementById('productImageSrc').value;
-            const productPrice = document.getElementById('productPrice').value;
+            const formData = new FormData(this);
+            const category = document.getElementById('categoryDropdown').value; // Отримуємо значення категорії з дропдауну
 
             // Відправка POST-запиту на сервер для створення товару
             const response = await fetch('http://localhost:3000/products', {
@@ -445,10 +448,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: productName,
-                    imageSrc: productImageSrc,
-                    price: productPrice,
-                    id: Math.random()
+                    ...Object.fromEntries(formData.entries()), // Додаємо дані з форми
+                    category,
+                    id: Date.now().toString() + Math.floor(Math.random() * 1000)
                 })
             });
 
