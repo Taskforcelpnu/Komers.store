@@ -4,9 +4,16 @@ const http = require('http');
 const models = require('./db/models')
 var sequelize = require('./db/db');
 
-// Змінні для зберігання списків категорій і товарів (тимчасове рішення без бази даних)
 const app = express();
 app.use(express.json());
+
+// const start = async () => {
+//
+//     await sequelize.authenticate()
+//     await sequelize.sync()
+//
+// }
+// start ()
 
 
 app.use((req, res, next) => {
@@ -67,7 +74,7 @@ app.get('/categories', (req, res) => {
     res.json(categories);
 });
 
-app.post('/add-product', (req, res) => {
+app.get('/add-product', (req, res) => {
     const { name, categoryId } = req.body;
     const category = categories.find(cat => cat.id === parseInt(categoryId));
     if (!category) {
@@ -101,7 +108,7 @@ app.post('/add-order', (req, res) => {
     console.log("test")
     // Перевірка на обов'язкові поля
     if (!fullName || !phoneNumber || !city || !postNumber) {
-        return res.status(400).json({ message: 'Неповний або некоректний запит' });
+        return res.status(400).json({message: 'Неповний або некоректний запит'});
     }
 
     // Створення нового замовлення
