@@ -28,7 +28,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
+app.use(express.static('public'));
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
