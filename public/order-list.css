@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.order-details {
+    background-color: rgb(192 178 164 / 87%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.order-details h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.order-details p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+.order-details .product-list {
+    margin-top: 20px;
+}
+
+.product-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.product-item img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.product-item h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.product-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.total-price {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.delivery-info {
+    margin-top: 20px;
+}
+
+.back-home {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #0022ff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.back-home:hover {
+    background-color: #0056b3;
+}
