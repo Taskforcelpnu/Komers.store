@@ -1,4 +1,3 @@
-
 export default class APIService {
     constructor() {
         this.baseUrl = 'http://localhost:3000';
@@ -37,7 +36,7 @@ export default class APIService {
         }
     }
 
-    async orderProducts (productsInBucket) {
+    async orderProducts(productsInBucket) {
         const response = await fetch(`${this.orderUrl}/add-order`, {
             method: 'POST',
             headers: {
