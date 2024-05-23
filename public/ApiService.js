@@ -90,5 +90,40 @@ export default class APIService {
             productDiv.appendChild(productInfoDiv);
             productsContainer.appendChild(productDiv);
         });
+        const deleteProductForm = document.getElementById('deleteProductForm');
+        deleteProductForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const productNameToDelete = document.getElementById('productNameToDelete').value;
+            console.log(productNameToDelete)
+            const products = await fetch('http://localhost:3000/products', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const productsData = await products.json();
+            const deleteProduct = productsData.find(product => product.name === productNameToDelete);
+            const deleteId = deleteProduct?.id
+            if (deleteId) {
+                // Відправка DELETE-запиту на сервер для видалення товару за іменем
+                const response = await fetch(`http://localhost:3000/products/${deleteId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                });
+
+                if (response.ok) {
+                    alert('Товар успішно видалено');
+                    location.reload();
+                } else {
+                    alert('Помилка при видаленні товару');
+                }
+            }
+            else {
+                alert("Вказаного товару не існує в бд");
+
+            }
+        });
     }
 }
